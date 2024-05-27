@@ -12,7 +12,7 @@ import SwiftUI
 //MARK: RoundedMask
 struct RoundedMask: Shape {
     
-    let padding: CGFloat = CardView.LocalConstants.horizontalPadding
+    let padding: CGFloat = LocalConstants.horizontalPadding
     let radius: CGFloat = 25
     
     func path(in rect: CGRect) -> Path {
@@ -53,6 +53,7 @@ struct RoundedMask: Shape {
     }
 }
 
+//MARK: StyledScrollView
 struct StyledScrollView: View {
     
     let cards: [Card]
@@ -66,15 +67,15 @@ struct StyledScrollView: View {
             GeometryReader { geo in
                 ScrollView(showsIndicators: false) {
                     ZStack(alignment: .top) {
-                        VStack(spacing: CardView.LocalConstants.spacing) {
+                        VStack(spacing: LocalConstants.spacing) {
                             ForEach( cards.indices, id: \.self ) { i in
                                 let card = cards[i]
+                                let type = CardView.CardViewType.getType()
                                 
-                                CardView(card: card,
-                                         totalCards: cards.count,
-                                         height: geo.size.height,
-                                         index: i,
-                                         scrollPosition: $scrollPosition.y)
+                                CardViewTemplate(height: type.rawValue, index: i, scrollPosition: $scrollPosition.y) { showingFullCard in
+                                    
+                                    CardView(card: card, cardType: type, showingFullCard: showingFullCard)
+                                }
                             }
                             
                             Rectangle()
