@@ -26,6 +26,7 @@ struct ContentView: View {
                 
             
             StyledScrollView(cards: [ card, card, card, card, card, card, card ])
+                .padding(.horizontal,7)
         }
     }
 }

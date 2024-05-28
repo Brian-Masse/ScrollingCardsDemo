@@ -13,7 +13,7 @@ import SwiftUI
 struct RoundedMask: Shape {
     
     let padding: CGFloat = LocalConstants.horizontalPadding
-    let radius: CGFloat = 25
+    let radius: CGFloat = LocalConstants.cornerRadius
     
     func path(in rect: CGRect) -> Path {
         Path { path in

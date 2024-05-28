@@ -119,6 +119,6 @@ struct CardView: View {
                     .minimumScaleFactor(0.5)
             }
         }
-        .foregroundStyle(.white)
+        .foregroundStyle( Color(red: 1, green: 245 / 255, blue: 222 / 255) )
     }
 }

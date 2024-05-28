@@ -61,7 +61,6 @@ struct CardViewTemplate<Content: View>: View {
     }
     
     private func checkHalfContentToggle(in geo: GeometryProxy) {
-        
         let distance = distanceFromStart(in: geo)
         
         if -distance > height * 0.55 {
